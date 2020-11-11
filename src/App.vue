@@ -1,12 +1,19 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <AppNavigation />
+    <router-view />
   </div>
 </template>
+
+
+<script lang="ts">
+import AppNavigation from "./AppNavigation.vue";
+import Vue from "vue";
+export default Vue.extend({
+  components: { AppNavigation },
+});
+</script>
+
 
 <style>
 #app {

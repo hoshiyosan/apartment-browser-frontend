@@ -2,10 +2,8 @@
   <v-list-item>
     <v-list-item-icon><v-icon>mdi-home-city</v-icon></v-list-item-icon>
     <v-list-item-content @click="openApartmentDetails()">
-      <v-list-item-title v-text="apartment.title"></v-list-item-title>
-      <v-list-item-subtitle
-        v-text="apartment.place.name"
-      ></v-list-item-subtitle>
+      <v-list-item-title v-text="apartment.place.name"></v-list-item-title>
+      <v-list-item-subtitle v-text="apartment.title"></v-list-item-subtitle>
     </v-list-item-content>
 
     <v-list-item-action>
@@ -34,7 +32,7 @@ export default class ApartmentsListItem extends Vue {
 
   private openApartmentDetails() {
     this.$router.push({
-      name: "ApartmentDetails",
+      name: "ApartmentSummary",
       params: { apartmentId: this.apartment._id },
     });
   }

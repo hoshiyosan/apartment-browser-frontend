@@ -1,11 +1,42 @@
+import { Commit } from 'vuex'
 import { APPARTMENTS } from '@/mock-data';
 import { Apartment, ApartmentSimple } from '@/types/apartment';
 //import axios from 'axios'
 
+/**
+ * Defines typing used by store
+ */
+export interface State {
+    selectedApartment?: Apartment;
+}
 
+export interface Context { commit: Commit; state: State }
+
+
+/**
+ * Effective store definition
+ */
 export default {
+    namespaced: true,
+    state: {
+        selectedApartment: null
+    },
+    mutations: {
+        setSelectedApartment(state: State, apartment: Apartment) {
+            state.selectedApartment = apartment;
+            console.log('selected apartment', apartment);
+        }
+    },
     actions: {
-        getApartmentDetails(context: object, apartmentId: string): Promise<Apartment> {
+        selectApartment(context: Context, apartmentId: string): Promise<Apartment> {
+            //return
+            return new Promise(resolve => {
+                const apartment = APPARTMENTS[apartmentId];
+                context.commit('setSelectedApartment', apartment);
+                resolve(apartment);
+            })
+        },
+        getApartmentDetails(context: Context, apartmentId: string): Promise<Apartment> {
             return new Promise(resolve => {
                 /*
                 axios.get(process.env.VUE_APP_BACKEND_URL + '/apartments/' + apartmentId)
@@ -25,7 +56,7 @@ export default {
                 resolve(Object.values(APPARTMENTS));
             })
         },
-        createApartment(context: object, apartment: Apartment): Promise<Apartment> {
+        createApartment(context: Context, apartment: Apartment): Promise<Apartment> {
             return new Promise(resolve => {
                 /*
                 axios.post(process.env.VUE_APP_BACKEND_URL + '/apartments', apartment)

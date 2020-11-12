@@ -1,8 +1,15 @@
 <template>
   <div>
-    <div v-for="apartment in apartments" :key="apartment._id">
-      <ApartmentsListItem :apartment="apartment" />
-    </div>
+    <v-list flat>
+      <v-subheader>APPARTEMENTS</v-subheader>
+      <v-list-item-group color="primary">
+        <ApartmentsListItem
+          v-for="apartment in apartments"
+          :key="apartment._id"
+          :apartment="apartment"
+        />
+      </v-list-item-group>
+    </v-list>
   </div>
 </template>
 
@@ -11,9 +18,10 @@ import Vue from "vue";
 import { Component, Prop } from "vue-property-decorator";
 import { ApartmentSimple } from "@/types/apartment";
 import ApartmentsListItem from "./ApartmentsListItem.vue";
+import ConfirmationDialog from "./dialogs/ConfirmationDialog.vue";
 
 @Component({
-  components: { ApartmentsListItem },
+  components: { ApartmentsListItem, ConfirmationDialog },
 })
 export default class ApartmentsList extends Vue {
   @Prop({ required: true })

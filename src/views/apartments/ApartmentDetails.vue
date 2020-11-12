@@ -1,5 +1,13 @@
 <template>
-  <div>apartment details {{ apartmentId }}</div>
+  <div>
+    <v-tabs>
+      <v-tab> <v-icon>mdi-clipboard-text-search</v-icon> Résumé</v-tab>
+      <v-tab><v-icon>mdi-cube</v-icon>Pièces</v-tab>
+      <v-tab><v-icon>mdi-currency-eur</v-icon>Coûts</v-tab>
+      <v-tab> <v-icon>mdi-chart-pie</v-icon> Analyse</v-tab>
+      <v-tab> <v-icon>mdi-comment</v-icon> Commentaires</v-tab>
+    </v-tabs>
+  </div>
 </template>
 
 <script lang="ts">

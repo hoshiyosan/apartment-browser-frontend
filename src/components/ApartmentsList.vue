@@ -10,6 +10,11 @@
         />
       </v-list-item-group>
     </v-list>
+    <div style="padding: 2em" v-if="apartments.length === 0">
+      <v-alert type="info" elevation="2">
+        No apartments bookmarked for now...
+      </v-alert>
+    </div>
   </div>
 </template>
 

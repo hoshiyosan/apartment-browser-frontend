@@ -12,14 +12,7 @@ import { ApartmentSimple } from "@/types/apartment";
 
 @Component({
   data: () => ({
-    apartments: [
-      {
-        _id: "d4fez4f165ez4f",
-        title: "yolo",
-        url: "http://leboncoin.fr/apartmentments/565f89ez74f987z",
-        place: { name: "Rennes", location: { lat: 1, lng: 2 } },
-      },
-    ],
+    apartments: [],
   }),
   components: {
     ApartmentsList,
@@ -29,7 +22,7 @@ export default class BrowseApartments extends Vue {
   private apartments: ApartmentSimple[] = [];
 
   mounted() {
-    this.$store.dispatch("browseApartments").then((apartments) => {
+    this.$store.dispatch("apartments/browseApartments").then((apartments) => {
       this.apartments = apartments;
     });
   }

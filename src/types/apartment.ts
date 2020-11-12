@@ -21,6 +21,13 @@ interface Rooms {
     bathroom: number;
 }
 
+interface Cost {
+    name: string;
+    amount: number;
+}
+
 export interface Apartment extends ApartmentSimple {
     rooms: Rooms;
+    costs: Cost[];
+    comment: string;
 }

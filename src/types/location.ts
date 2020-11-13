@@ -1,10 +1,1 @@
-
-export interface Location {
-    lat: number;
-    lng: number;
-}
-
-export default interface Place {
-    name: string;
-    location: Location;
-}
+export { GPlace, GLocation } from '../plugins/vuetify-google-components/types'

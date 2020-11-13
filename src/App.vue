@@ -9,9 +9,12 @@
 
 
 <script lang="ts">
-import AppNavigation from "./AppNavigation.vue";
 import Vue from "vue";
-export default Vue.extend({
+import Component from "vue-class-component";
+import AppNavigation from "./AppNavigation.vue";
+
+@Component({
   components: { AppNavigation },
-});
+})
+export default class App extends Vue {}
 </script>

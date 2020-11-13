@@ -1,4 +1,4 @@
-import Place from './location';
+import { GPlace } from './location';
 
 /**
  * Defines ApartmentSimple used for quick listing of apartments
@@ -7,7 +7,7 @@ export interface ApartmentSimple {
     _id: string;
     url: string;
     title: string;
-    place: Place;
+    place: GPlace;
 }
 
 /**
